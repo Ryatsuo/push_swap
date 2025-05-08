@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	count_push_max_or_nextmax(t_list **lst_a, t_list **lst_b)
+void	count_push_max_or_nextmax(t_list **lst_a, t_list **lst_b)
 {
 	int max_val;
 	int max_pos;
@@ -10,19 +10,17 @@ int	count_push_max_or_nextmax(t_list **lst_a, t_list **lst_b)
 	int cost_next;
 
 	if (!(*lst_b) || !(*lst_b)->next)
-		return (1);
+		return ;
 	max_val = find_highest_nbr((*lst_b));
 	next_max_val = find_next_max((*lst_b), max_val);
 	max_pos = find_len_nbr((*lst_b), max_val);
 	next_max_pos = find_len_nbr((*lst_b), next_max_val);
 	cost_max = len_reach_top(lst_b, max_pos);
 	cost_next = len_reach_top(lst_b, next_max_pos);
-
 	if (cost_next + 1 < cost_max)
 		push_nextmax_first(lst_a, lst_b, next_max_val, next_max_pos, max_val);
 	if (cost_next + 1 >= cost_max)
 		push_max_first(lst_a, lst_b, next_max_val, next_max_pos, max_val);
-	return (0);
 }
 
 void	push_max_first(t_list **lst_a, t_list **lst_b, int next_max_val, int next_max_pos, int max_val)
