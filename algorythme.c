@@ -18,24 +18,31 @@ void	dynamique_chunk(t_list **lst_a, t_list **lst_b)
 	}
 }
 
-int dynamique_chunk_algo(t_list **lst_a, t_list **lst_b, int end)
+int	dynamique_chunk_algo(t_list **lst_a, t_list **lst_b, int end)
 {
-	int current_value;
+	t_list	*tmp_b;
 
-    t_list *tmp_a = *lst_a;
-    if (tmp_a == NULL)
-        return end;
-    current_value = *(int *)(tmp_a->index);
-    if (current_value <= end)
-    {
-        lst_push_a(lst_a, lst_b);
-        if (*(int *)(*lst_b)->index < end / 2 && ft_lstsize(*lst_b) > 1)
-            lst_rotate_b(lst_b);
-        end++;
-    }
-    else
-            lst_rotate_a(lst_a);
-    return (end);
+	if (!*lst_a)
+		return (end);
+	if (*(int *)(*lst_a)->index <= end)
+	{
+		lst_push_a(lst_a, lst_b);
+		if (ft_lstsize(*lst_b) > 1)
+		{
+			tmp_b = *lst_b;
+			if (*(int *)tmp_b->index < *(int *)tmp_b->next->index)
+			{
+				if (*lst_a && *(int *)(*lst_a)->index <= end)
+					lst_doble_rotate(lst_a, lst_b);
+				else
+					lst_rotate_b(lst_b);
+			}
+		}
+		end++;
+	}
+	else
+		lst_rotate(lst_a);
+	return (end);
 }
 
 void	rotate(t_list **pile_a)

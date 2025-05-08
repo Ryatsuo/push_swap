@@ -1,5 +1,15 @@
 #include "push_swap.h"
 
+void	fill_a(t_list **lst_a, t_list **lst_b)
+{
+	while (*lst_b)
+	{
+		count_push_max_or_nextmax(lst_a, lst_b);
+		if (ft_lstsize(*lst_b) == 1)
+			lst_push_b(lst_b,lst_a);
+	}
+}
+
 void	count_push_max_or_nextmax(t_list **lst_a, t_list **lst_b)
 {
 	int max_val;
@@ -75,22 +85,6 @@ void	push_nextmax_first(t_list **lst_a, t_list **lst_b, int next_max_val, int ne
 	lst_push_b(lst_b, lst_a);
 	if (*lst_a && (*lst_a)->next && *(int *)(*lst_a)->index > *(int *)(*lst_a)->next->index)
 		lst_swap_a(lst_a);
-}
-
-int find_next_max(t_list *lst_b, int current_max) 
-{
-    int next_max;
-	int value;
-
-	next_max = -2147483648;
-    while (lst_b) 
-	{
-        value = *(int *)lst_b->index;
-        if (value > next_max && value < current_max)
-            next_max = value;
-        lst_b = lst_b->next;
-    }
-    return next_max;
 }
 
 int len_reach_top(t_list **lst_b, int len_node_in_lst)

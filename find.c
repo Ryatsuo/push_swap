@@ -44,3 +44,19 @@ int	is_next_max(t_list *pile_b)
 		return (1);
 	return (-1);
 }
+
+int find_next_max(t_list *lst_b, int current_max) 
+{
+    int next_max;
+	int value;
+
+	next_max = -2147483648;
+    while (lst_b) 
+	{
+        value = *(int *)lst_b->index;
+        if (value > next_max && value < current_max)
+            next_max = value;
+        lst_b = lst_b->next;
+    }
+    return next_max;
+}
