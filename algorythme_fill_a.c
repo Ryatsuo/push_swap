@@ -77,7 +77,6 @@ void	push_nextmax_first(t_list **lst_a, t_list **lst_b, int next_max_val, int ne
 		lst_swap_a(lst_a);
 }
 
-
 int find_next_max(t_list *lst_b, int current_max) 
 {
     int next_max;
