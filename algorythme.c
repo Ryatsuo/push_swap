@@ -9,7 +9,7 @@ void	dynamique_chunk(t_list **lst_a, t_list **lst_b)
 	if (len_lst_a >= 500)
 		end = 35;
 	else if (len_lst_a >= 50)
-		end = 20;
+		end = 17;
 	else 
 		end = 3;
 	while (*lst_a)

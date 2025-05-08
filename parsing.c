@@ -83,19 +83,3 @@ void	parse_index(t_list *pile)
 		index++;
 	}
 }
-
-int	find_lowest_nbr_parsing(t_list *pile_a)
-{
-	t_list	*tmp_pile_a;
-	int		low_num_pile_a;
-
-	tmp_pile_a = pile_a;
-	low_num_pile_a = 2147483647;
-	while (tmp_pile_a)
-	{
-		if (low_num_pile_a > *(int *)tmp_pile_a->content && (*(int *)tmp_pile_a->index == -1))
-			low_num_pile_a = *(int *)tmp_pile_a->content;
-		tmp_pile_a = tmp_pile_a->next;
-	}
-	return (low_num_pile_a);
-}

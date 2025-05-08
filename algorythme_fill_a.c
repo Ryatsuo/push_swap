@@ -56,7 +56,7 @@ void	push_max_first(t_list **lst_a, t_list **lst_b, int next_max_val, int next_m
 		next_max_pos = find_len_nbr(*lst_b, next_max_val);
 	}
 	lst_push_b(lst_b, lst_a);
-	if (*lst_a && (*lst_a)->next && *(int *)(*lst_a)->index > *(int *)(*lst_a)->next->index)
+	if (*(int *)(*lst_a)->index > *(int *)(*lst_a)->next->index)
 		lst_swap_a(lst_a);
 }
 
@@ -83,7 +83,7 @@ void	push_nextmax_first(t_list **lst_a, t_list **lst_b, int next_max_val, int ne
 		max_pos = find_len_nbr(*lst_b, max_val);
 	}
 	lst_push_b(lst_b, lst_a);
-	if (*lst_a && (*lst_a)->next && *(int *)(*lst_a)->index > *(int *)(*lst_a)->next->index)
+	if (*(int *)(*lst_a)->index > *(int *)(*lst_a)->next->index)
 		lst_swap_a(lst_a);
 }
 

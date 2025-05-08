@@ -60,3 +60,19 @@ int find_next_max(t_list *lst_b, int current_max)
     }
     return next_max;
 }
+
+int	find_lowest_nbr_parsing(t_list *pile_a)
+{
+	t_list	*tmp_pile_a;
+	int		low_num_pile_a;
+
+	tmp_pile_a = pile_a;
+	low_num_pile_a = 2147483647;
+	while (tmp_pile_a)
+	{
+		if (low_num_pile_a > *(int *)tmp_pile_a->content && (*(int *)tmp_pile_a->index == -1))
+			low_num_pile_a = *(int *)tmp_pile_a->content;
+		tmp_pile_a = tmp_pile_a->next;
+	}
+	return (low_num_pile_a);
+}

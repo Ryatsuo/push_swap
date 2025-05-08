@@ -67,6 +67,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	del(void *current);
 long	ft_atol(const char *str);
 void	free_list(t_list *lst);
+void	free_split(char **split);
 //get_next_line
 char	*get_next_line(int fd);
 int		process_buffer(char **line, char *buf);

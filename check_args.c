@@ -60,3 +60,26 @@ int	check_nbr_range(char **argv)
 	}
 	return (1);
 }
+
+int	check_arg_order(char **tab)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = atoi(tab[0]);
+	while (tab[i])
+	{
+		int current = atoi(tab[i]);
+		if (j < current)
+		{
+			j = current;
+			i++;
+		}
+		else 
+		{
+			return (0);
+		}
+	}
+	return (1);
+}

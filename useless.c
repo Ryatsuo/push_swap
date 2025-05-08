@@ -1,4 +1,4 @@
-int swap(t_list **pile_a, t_list **pile_b)
+/*int swap(t_list **pile_a, t_list **pile_b)
 {
     int min = find_lowest_nbr(*pile_a);
     int second_min = find_second_lowest_nbr(*pile_a);
@@ -48,4 +48,4 @@ int	find_second_lowest_nbr(t_list *pile_b)
 	if (*(int *)pile_b->index == (high_num + 1))
 		return (1);
 	return (-1);
-}
+}*/

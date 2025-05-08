@@ -23,25 +23,41 @@ void	error(void)
 	exit(1);
 }
 
-int main(int argc, char **argv)
+void	launch(t_list **pile_a, t_list **pile_b)
 {
-	t_list *pile_a;
-	t_list *pile_b;
+	init_index(*pile_a);
+	parse_index(*pile_a);
+	dynamique_chunk(pile_a, pile_b);
+	fill_a(pile_a, pile_b);	
+}
+
+int	main(int argc, char **argv)
+{
+	t_list	*pile_a;
+	t_list	*pile_b;
+	char	**tab;
 
 	pile_a = NULL;
 	pile_b = NULL;
-	if (argc > 2 && check_arg_are_different(argv)
-		&& check_arg_is_nbr(argv) && check_nbr_range(argv))
+	tab = NULL;
+	if (argc == 2)
+		tab = ft_split(argv[1], ' ');
+	if ((argc == 2 && tab && check_arg_are_different(tab)
+			&& check_arg_is_nbr(tab) && check_nbr_range(tab)))
+		pile_a = parsing(tab);
+	else if (argc > 2 && check_arg_are_different(argv)
+			&& check_arg_is_nbr(argv) && check_nbr_range(argv))
 		pile_a = parsing(argv);
-		else
+	else
+	{
+		if (tab)
+			free_split(tab);
 		error();
+	}
 	if (!pile_a)
 		error();
-	init_index(pile_a);
-	parse_index(pile_a);
-	dynamique_chunk(&pile_a, &pile_b);
-	fill_a(&pile_a, &pile_b);
-	print_lst(pile_a, pile_b);
-	ft_printf("%d\n", g_op_count);
+	launch(&pile_a, &pile_b);
+	if (tab)
+		free_split(tab);
 	return (0);
-} 
+}
