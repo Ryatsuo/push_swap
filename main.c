@@ -44,10 +44,10 @@ int	main(int argc, char **argv)
 		tab = ft_split(argv[1], ' ');
 	if ((argc == 2 && tab && check_arg_are_different(tab)
 			&& check_arg_is_nbr(tab) && check_nbr_range(tab)))
-		pile_a = parsing(tab);
+		pile_a = parsing(tab, 0);
 	else if (argc > 2 && check_arg_are_different(argv)
 			&& check_arg_is_nbr(argv) && check_nbr_range(argv))
-		pile_a = parsing(argv);
+		pile_a = parsing(argv, 1);
 	else
 	{
 		if (tab)
@@ -57,6 +57,7 @@ int	main(int argc, char **argv)
 	if (!pile_a)
 		error();
 	launch(&pile_a, &pile_b);
+	print_lst(pile_a, pile_b);
 	if (tab)
 		free_split(tab);
 	return (0);

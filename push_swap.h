@@ -22,7 +22,7 @@ int		check_arg_are_different(char **argv);
 int		check_arg_is_nbr(char **argv);
 int		check_nbr_range(char **argv);
 t_list	*create_node(int nbr);
-t_list	*parsing(char **argv);
+t_list	*parsing(char **argv, int i);
 int		find_lowest_nbr_parsing(t_list *pile_a);
 void	init_index(t_list *pile);
 void	parse_index(t_list *pile);

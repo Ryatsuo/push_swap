@@ -3,55 +3,39 @@
 
 static size_t	ft_countword(char const *s, char c)
 {
+	size_t	count;
 	size_t	i;
-	size_t	compteur;
-	size_t	start;
-	size_t	len;
 
+	count = 0;
 	i = 0;
-	compteur = 0;
-	start = 0;
-	len = 0;
 	while (s[i])
 	{
-		if (i == 0 && s[0] != c)
-			compteur++;
-		start = i;
-		while (s[i] == c)
-			i++;
-		len = i - start;
-		if (len > 0 && s[i])
-			compteur++;
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
+			count++;
 		i++;
 	}
-	return (compteur);
+	return (count);
 }
 
-static size_t	ft_countcarac(char const *s, char c, size_t start)
+static char	**allocate_tab(size_t nbr_word)
 {
-	size_t	i;
+	char	**tab;
 
-	i = 0;
-	while (s[start] == c)
-		start++;
-	while (s[start] != c && s[start])
+	if (nbr_word == 0)
 	{
-		i++;
-		start++;
+		tab = malloc(sizeof(char *));
+		if (!tab)
+			return (NULL);
+		tab[0] = NULL;
+		return (tab);
 	}
-	return (i);
+	tab = malloc(sizeof(char *) * (nbr_word + 1));
+	if (!tab)
+		return (NULL);
+	return (tab);
 }
 
-static size_t	ft_countskip(char const *s, char c, size_t start)
-{
-	while (s[start] == c)
-		start++;
-	while (s[start] != c && s[start])
-		start++;
-	return (start);
-}
-
-static char	**fill_split(char const *s, char c, char **tab, size_t nbr_word)
+static int	fill_words(char const *s, char c, char **tab, size_t nbr_word)
 {
 	size_t	i;
 	size_t	j;
@@ -61,49 +45,46 @@ static char	**fill_split(char const *s, char c, char **tab, size_t nbr_word)
 	j = 0;
 	while (j < nbr_word)
 	{
-		k = 0;
 		while (s[i] == c)
 			i++;
-		while (s[i] && s[i] != c)
-		{
-			tab[j][k] = s[i];
-			i++;
+		k = 0;
+		while (s[i + k] && s[i + k] != c)
 			k++;
-		}
-		tab[j][k] = '\0';
+		tab[j] = malloc(k + 1);
+		if (!tab[j])
+			return (0);
+		ft_strlcpy(tab[j], &s[i], k + 1);
+		i += k;
 		j++;
 	}
 	tab[j] = NULL;
-	return (tab);
+	return (1);
+}
+
+static void	clean_tab(char **tab, size_t index)
+{
+	while (index > 0)
+		free(tab[--index]);
+	free(tab);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	nbr_word;
-	size_t	start;
 	char	**tab;
+	size_t	nbr_word;
 
-	i = 0;
-	start = 0;
+	if (!s)
+		return (NULL);
 	nbr_word = ft_countword(s, c);
-	if (nbr_word == 0 || !(ft_countcarac(s, c, start)))
-	{
-		tab = malloc(1);
-		if (!tab)
-			return (NULL);
-		tab[0] = NULL;
-		return (tab);
-	}
-	tab = malloc(sizeof(char *) * (nbr_word + 1));
+	tab = allocate_tab(nbr_word);
 	if (!tab)
 		return (NULL);
-	while (i < nbr_word)
+	if (nbr_word > 0 && !fill_words(s, c, tab, nbr_word))
 	{
-		tab[i++] = malloc(sizeof(char) * (ft_countcarac(s, c, start) + 1));
-		start += ft_countskip(s, c, start);
+		clean_tab(tab, nbr_word);
+		return (NULL);
 	}
-	return (fill_split(s, c, tab, nbr_word));
+	return (tab);
 }
 /*
 #include <stdio.h>

@@ -22,13 +22,11 @@ t_list *create_node(int nbr)
     return (new);
 }
 
-t_list *parsing(char **argv)
+t_list *parsing(char **argv, int i)
 {
-    int i;
     t_list *new_node;
     t_list *pile_a;
 
-    i = 1;
     pile_a = NULL;
     while (argv[i])
     {
