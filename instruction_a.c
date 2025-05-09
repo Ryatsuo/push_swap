@@ -28,7 +28,7 @@ void	lst_push_a(t_list **lst, t_list **lst_2)
 	*lst = tmp_lst->next;
 	tmp_lst->next = NULL;
 	ft_lstadd_front(lst_2, tmp_lst);
-	ft_printf("pa\n");
+	ft_printf("pb\n");
 	g_op_count++;
 }
 

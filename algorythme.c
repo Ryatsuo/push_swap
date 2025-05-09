@@ -7,11 +7,11 @@ void	dynamique_chunk(t_list **lst_a, t_list **lst_b)
 
 	len_lst_a = ft_lstsize(*lst_a);
 	if (len_lst_a >= 500)
-		end = 35;
+		end = 25;
 	else if (len_lst_a >= 50)
-		end = 17;
+		end = 10;
 	else 
-		end = 3;
+		end = 2;
 	while (*lst_a)
 	{
 		end = (dynamique_chunk_algo(lst_a, lst_b, end));
@@ -41,7 +41,7 @@ int	dynamique_chunk_algo(t_list **lst_a, t_list **lst_b, int end)
 		end++;
 	}
 	else
-		lst_rotate(lst_a);
+		rotate(lst_a);
 	return (end);
 }
 

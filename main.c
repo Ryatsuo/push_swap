@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 	if (!pile_a)
 		error();
 	launch(&pile_a, &pile_b);
-	print_lst(pile_a, pile_b);
+	ft_printf("nbr move : %d\n", g_op_count);
 	if (tab)
 		free_split(tab);
 	return (0);
