@@ -1,4 +1,7 @@
-/*int swap(t_list **pile_a, t_list **pile_b)
+#include "push_swap.h"
+
+/*
+int swap(t_list **pile_a, t_list **pile_b)
 {
     int min = find_lowest_nbr(*pile_a);
     int second_min = find_second_lowest_nbr(*pile_a);

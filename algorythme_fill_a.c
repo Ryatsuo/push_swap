@@ -30,10 +30,10 @@ void	count_push_max_or_nextmax(t_list **lst_a, t_list **lst_b)
 	if (cost_next + 1 < cost_max)
 		push_nextmax_first(lst_a, lst_b, next_max_val, next_max_pos, max_val);
 	if (cost_next + 1 >= cost_max)
-		push_max_first(lst_a, lst_b, next_max_val, next_max_pos, max_val);
+		push_max_first(lst_a, lst_b, max_val);
 }
 
-void	push_max_first(t_list **lst_a, t_list **lst_b, int next_max_val, int next_max_pos, int max_val)
+void	push_max_first(t_list **lst_a, t_list **lst_b, int max_val)
 {
 	int max_pos;
 	
@@ -47,17 +47,6 @@ void	push_max_first(t_list **lst_a, t_list **lst_b, int next_max_val, int next_m
 		max_pos = find_len_nbr(*lst_b, max_val);
 	}
 	lst_push_b(lst_b, lst_a);
-	while (*(int *)(*lst_b)->index != next_max_val)
-	{
-		if (next_max_pos < ft_lstsize(*lst_b) / 2)
-			lst_rotate_b(lst_b);
-		else
-			lst_reverse_rotate_b(lst_b);
-		next_max_pos = find_len_nbr(*lst_b, next_max_val);
-	}
-	lst_push_b(lst_b, lst_a);
-	if (*(int *)(*lst_a)->index > *(int *)(*lst_a)->next->index)
-		lst_swap_a(lst_a);
 }
 
 void	push_nextmax_first(t_list **lst_a, t_list **lst_b, int next_max_val, int next_max_pos, int max_val)

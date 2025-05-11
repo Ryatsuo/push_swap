@@ -36,9 +36,10 @@ void	fill_a(t_list **lst_a, t_list **lst_b);
 int		dynamique_chunk_algo(t_list **lst_a, t_list **lst_b, int end);
 void	count_push_max_or_nextmax(t_list **lst_a, t_list **lst_b);
 void	push_nextmax_first(t_list **lst_a, t_list **lst_b, int next_max_val, int next_max_pos, int max_val);
-void	push_max_first(t_list **lst_a, t_list **lst_b, int next_max_val, int next_max_pos, int max_val);
+void	push_max_first(t_list **lst_a, t_list **lst_b, int max_val);
 int 	find_next_max(t_list *lst_b, int current_max);
 int		len_reach_top(t_list **lst_b, int len_node_in_lst);
 void	launch(t_list **pile_a, t_list **pile_b);
+int		last_in_b(t_list **lst_b);
 
 #endif
