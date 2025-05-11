@@ -5,7 +5,7 @@ void	free_split(char **split)
 	int	i;
 
 	if (split == NULL)
-		return;
+		return ;
 	i = 0;
 	while (split[i] != NULL)
 	{

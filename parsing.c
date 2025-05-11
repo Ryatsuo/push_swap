@@ -1,64 +1,63 @@
 #include "push_swap.h"
 
-t_list *create_node(int nbr)
+t_list	*create_node(int nbr)
 {
-    t_list *new;
-    int *value;
+	t_list	*new;
+	int		*value;
 
-    value = malloc(sizeof(int));
-    if (!value)
-        return (NULL);
-    *value = nbr;
-
-    new = malloc(sizeof(t_list));
-    if (!new)
-    {
-        free(value);
-        return (NULL);
-    }
-    new->content = value;
-    new->index = NULL;
-    new->next = NULL;
-    return (new);
+	value = malloc(sizeof(int));
+	if (!value)
+		return (NULL);
+	*value = nbr;
+	new = malloc(sizeof(t_list));
+	if (!new)
+	{
+		free(value);
+		return (NULL);
+	}
+	new->content = value;
+	new->index = NULL;
+	new->next = NULL;
+	return (new);
 }
 
-t_list *parsing(char **argv, int i)
+t_list	*parsing(char **argv, int i)
 {
-    t_list *new_node;
-    t_list *pile_a;
+	t_list	*new_node;
+	t_list	*pile_a;
 
-    pile_a = NULL;
-    while (argv[i])
-    {
-        new_node = create_node(ft_atoi(argv[i]));
-        if (!new_node)
-        {
-            free_list(pile_a);
-            return (NULL);
-        }
-        ft_lstadd_back(&pile_a, new_node);
-        i++;
-    }
-    return (pile_a);
+	pile_a = NULL;
+	while (argv[i])
+	{
+		new_node = create_node(ft_atoi(argv[i]));
+		if (!new_node)
+		{
+			free_list(pile_a);
+			return (NULL);
+		}
+		ft_lstadd_back(&pile_a, new_node);
+		i++;
+	}
+	return (pile_a);
 }
 
-void init_index(t_list *pile)
+void	init_index(t_list *pile)
 {
-    t_list *tmp;
+	t_list	*tmp;
 
-    tmp = pile;
-    while (tmp)
-    {
-        tmp->index = malloc(sizeof(int));
-        if (!tmp->index)
-        {
-            write(2, "malloc index failed\n", 21);
-            free_list(pile);
-            return ;
-        }
-        *(int *)tmp->index = -1;
-        tmp = tmp->next;
-    }
+	tmp = pile;
+	while (tmp)
+	{
+		tmp->index = malloc(sizeof(int));
+		if (!tmp->index)
+		{
+			write(2, "malloc index failed\n", 21);
+			free_list(pile);
+			return ;
+		}
+		*(int *)tmp->index = -1;
+		tmp = tmp->next;
+	}
 }
 
 void	parse_index(t_list *pile)

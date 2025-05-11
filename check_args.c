@@ -29,13 +29,13 @@ int	check_arg_is_nbr(char **argv)
 	while (argv[i])
 	{
 		j = 0;
-		while(argv[i][j])
+		while (argv[i][j])
 		{
 			if (j == 0 && (argv[i][j] == '-' || argv[i][j] == '+'))
 			{
 				if (argv[i][j + 1])
 					j++;
-				else 
+				else
 					return (0);
 			}
 			if (!ft_isdigit(argv[i][j]))
@@ -65,18 +65,19 @@ int	check_arg_order(char **tab)
 {
 	int	i;
 	int	j;
+	int	current;
 
 	i = 1;
 	j = atoi(tab[0]);
 	while (tab[i])
 	{
-		int current = atoi(tab[i]);
+		current = atoi(tab[i]);
 		if (j < current)
 		{
 			j = current;
 			i++;
 		}
-		else 
+		else
 		{
 			return (0);
 		}

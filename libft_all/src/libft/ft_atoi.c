@@ -26,6 +26,7 @@ int	ft_atoi(const char *nptr)
 	nbr *= sign;
 	return (nbr);
 }
+
 /*
 #include <stdio.h>
 int main (void)

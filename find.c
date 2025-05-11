@@ -2,8 +2,8 @@
 
 int	find_len_nbr(t_list *pile_b, int nbr)
 {
-	t_list *tmp;
-	int	len;
+	t_list	*tmp;
+	int		len;
 
 	tmp = pile_b;
 	len = 0;
@@ -45,20 +45,20 @@ int	is_next_max(t_list *pile_b)
 	return (-1);
 }
 
-int find_next_max(t_list *lst_b, int current_max) 
+int	find_next_max(t_list *lst_b, int current_max)
 {
-    int next_max;
-	int value;
+	int	next_max;
+	int	value;
 
 	next_max = -2147483648;
-    while (lst_b) 
+	while (lst_b)
 	{
-        value = *(int *)lst_b->index;
-        if (value > next_max && value < current_max)
-            next_max = value;
-        lst_b = lst_b->next;
-    }
-    return next_max;
+		value = *(int *)lst_b->index;
+		if (value > next_max && value < current_max)
+			next_max = value;
+		lst_b = lst_b->next;
+	}
+	return (next_max);
 }
 
 int	find_lowest_nbr_parsing(t_list *pile_a)
@@ -70,7 +70,8 @@ int	find_lowest_nbr_parsing(t_list *pile_a)
 	low_num_pile_a = 2147483647;
 	while (tmp_pile_a)
 	{
-		if (low_num_pile_a > *(int *)tmp_pile_a->content && (*(int *)tmp_pile_a->index == -1))
+		if (low_num_pile_a > *(int *)tmp_pile_a->content
+			&& (*(int *)tmp_pile_a->index == -1))
 			low_num_pile_a = *(int *)tmp_pile_a->content;
 		tmp_pile_a = tmp_pile_a->next;
 	}

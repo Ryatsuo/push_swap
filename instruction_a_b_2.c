@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	lst_swap(t_list **lst) 
+void	lst_swap(t_list **lst)
 {
 	t_list	*tmp_lst_1;
 	t_list	*tmp_lst_2;
@@ -33,7 +33,6 @@ void	lst_reverse_rotate(t_list **lst)
 
 	if (!lst || !*lst || !(*lst)->next)
 		return ;
-
 	tmp_lst = *lst;
 	tmp_lst_2 = *lst;
 	while (tmp_lst->next)
