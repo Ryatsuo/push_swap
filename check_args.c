@@ -1,11 +1,9 @@
 #include "push_swap.h"
 
-int	check_arg_are_different(char **argv)
+int	check_arg_are_different(char **argv, int i)
 {
-	int	i;
 	int	j;
 
-	i = 1;
 	while (argv[i])
 	{
 		j = i + 1;
@@ -20,12 +18,10 @@ int	check_arg_are_different(char **argv)
 	return (1);
 }
 
-int	check_arg_is_nbr(char **argv)
+int	check_arg_is_nbr(char **argv, int i)
 {
-	int	i;
 	int	j;
 
-	i = 1;
 	while (argv[i])
 	{
 		j = 0;
@@ -47,11 +43,8 @@ int	check_arg_is_nbr(char **argv)
 	return (1);
 }
 
-int	check_nbr_range(char **argv)
+int	check_nbr_range(char **argv, int i)
 {
-	int	i;
-
-	i = 0;
 	while (argv[i])
 	{
 		if (ft_atol(argv[i]) < -2147483648 || ft_atol(argv[i]) > 2147483647)
@@ -61,13 +54,11 @@ int	check_nbr_range(char **argv)
 	return (1);
 }
 
-int	check_arg_order(char **tab)
+int	check_arg_order(char **tab, int i)
 {
-	int	i;
 	int	j;
 	int	current;
 
-	i = 1;
 	j = atoi(tab[0]);
 	while (tab[i])
 	{

@@ -18,11 +18,11 @@ void	check_args(int argc, char **argv, char ***tab, t_list **pile_a)
 {
 	if (argc == 2)
 		*tab = ft_split(argv[1], ' ');
-	if ((argc == 2 && *tab && check_arg_are_different(*tab)
-			&& check_arg_is_nbr(*tab) && check_nbr_range(*tab)))
+	if ((argc == 2 && *tab && check_arg_are_different(*tab, 0)
+			&& check_arg_is_nbr(*tab, 0) && check_nbr_range(*tab, 0)))
 		*pile_a = parsing(*tab, 0);
-	else if (argc > 2 && check_arg_are_different(argv)
-		&& check_arg_is_nbr(argv) && check_nbr_range(argv))
+	else if (argc > 2 && check_arg_are_different(argv, 1)
+		&& check_arg_is_nbr(argv, 1) && check_nbr_range(argv, 1))
 		*pile_a = parsing(argv, 1);
 	else
 	{
