@@ -1,5 +1,5 @@
 // Teste si un caractère est une lettre
-#include "libft.h"
+#include "../../libft.h"
 
 int	ft_isalpha(int c)
 {

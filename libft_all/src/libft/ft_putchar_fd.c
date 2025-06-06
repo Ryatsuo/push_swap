@@ -1,5 +1,5 @@
 // Affiche un caractère en choisissant ça sortie
-#include "libft.h"
+#include "../../libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

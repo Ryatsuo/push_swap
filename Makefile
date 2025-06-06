@@ -1,6 +1,8 @@
 NAME	= push_swap
 
-SRCS	= main.c \
+LIBFT_ALL	= libft_all/src
+
+PS_SRCS = main.c \
 		  check_args.c \
 		  find.c \
 		  parsing.c \
@@ -9,30 +11,32 @@ SRCS	= main.c \
 		  instruction_a_b.c \
 		  instruction_a_b_2.c \
 		  algorythme.c \
-		  algorythme_fill_a.c \
+		  algorythme_fill_a.c
 
-OBJS	= $(SRCS:.c=.o)
+LIBFT_SRCS = $(wildcard $(LIBFT_ALL)/libft/*.c)
+GNL_SRCS   = $(wildcard $(LIBFT_ALL)/get_next_line/*.c)
+PRINTF_SRCS= $(wildcard $(LIBFT_ALL)/ft_printf/*.c)
 
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+SRCS = $(PS_SRCS) $(LIBFT_SRCS) $(GNL_SRCS) $(PRINTF_SRCS)
+OBJS = $(SRCS:.c=.o)
 
-LIBFT_DIR	= libft_all
-LIBFT		= $(LIBFT_DIR)/libft.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
-INCLUDES	= -I. -I$(LIBFT_DIR)
+INCLUDES = -I. -I$(LIBFT_ALL)/libft -I$(LIBFT_ALL)/get_next_line -I$(LIBFT_ALL)/ft_printf
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	make -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	make clean -C $(LIBFT_DIR)
 	rm -f $(OBJS)
 
 fclean: clean
-	make fclean -C $(LIBFT_DIR)
 	rm -f $(NAME)
 
 re: fclean all

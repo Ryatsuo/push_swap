@@ -1,5 +1,5 @@
 // Copie un nombre d'octets d'une source vers une destination
-#include "libft.h"
+#include "../../libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

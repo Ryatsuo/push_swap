@@ -1,4 +1,5 @@
-#include "libft.h"
+#include "../../libft.h"
+
 
 void	free_split(char **split)
 {

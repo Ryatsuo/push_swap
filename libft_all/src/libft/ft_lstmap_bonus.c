@@ -1,5 +1,5 @@
 //Creer une liste chainée provenant d'une autre liste + applique une fonction
-#include "libft.h"
+#include "../../libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

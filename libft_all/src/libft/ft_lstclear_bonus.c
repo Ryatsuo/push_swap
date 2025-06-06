@@ -1,5 +1,5 @@
 // Supprime en mémoire le contenu d'une liste et la liste = null
-#include "libft.h"
+#include "../../libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {

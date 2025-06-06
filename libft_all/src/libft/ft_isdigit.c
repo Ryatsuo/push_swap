@@ -1,5 +1,5 @@
 // Teste si un caractère est un chiffre
-#include "libft.h"
+#include "../../libft.h"
 
 int	ft_isdigit(int c)
 {

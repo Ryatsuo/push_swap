@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "../../libft.h"
 
 int	process_buffer(char **line, char *buf)
 {
@@ -7,7 +7,7 @@ int	process_buffer(char **line, char *buf)
 		*line = ft_strjoin_gnl(*line, buf);
 		if (!*line)
 			return (-1);
-		if (ft_strchr(buf, '\n'))
+		if (ft_strchr_gnl(buf, '\n'))
 		{
 			ft_clean_buf(buf);
 			return (1);

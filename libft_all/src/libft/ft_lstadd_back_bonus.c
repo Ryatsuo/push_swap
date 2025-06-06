@@ -1,5 +1,5 @@
 // ajoute un élément a la fin d'une liste chainée;
-#include "libft.h"
+#include "../../libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {

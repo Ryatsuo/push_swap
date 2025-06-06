@@ -1,5 +1,5 @@
 // Teste si un caractère est alphanumérique
-#include "libft.h"
+#include "../../libft.h"
 
 int	ft_isalnum(int c)
 {

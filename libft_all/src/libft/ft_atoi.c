@@ -1,5 +1,6 @@
 // Convertit un char en int
-#include "libft.h"
+#include "../../libft.h"
+
 
 int	ft_atoi(const char *nptr)
 {

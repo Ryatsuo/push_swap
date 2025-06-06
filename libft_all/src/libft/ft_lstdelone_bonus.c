@@ -1,5 +1,5 @@
 // Supprime en mémoire le contenu d'une liste puis la liste elle même
-#include "libft.h"
+#include "../../libft.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {

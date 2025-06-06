@@ -1,5 +1,5 @@
 // Convertit les lettre majuscule en minuscule
-#include "libft.h"
+#include "../../libft.h"
 
 int	ft_tolower(int c)
 {

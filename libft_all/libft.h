@@ -67,7 +67,7 @@ void	free_split(char **split);
 //get_next_line
 char	*get_next_line(int fd);
 int		process_buffer(char **line, char *buf);
-char	*ft_strchr(const char *s, int c);
+char	*ft_strchr_gnl(const char *s, int c);
 void	copy_lines(char *new, char *line, size_t *i);
 char	*ft_strjoin_gnl(char *line, const char *buf);
 void	ft_clean_buf(char *buf);

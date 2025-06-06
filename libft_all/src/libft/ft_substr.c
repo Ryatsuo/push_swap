@@ -1,5 +1,5 @@
 // Copie un tableau avec malloc avec un indice de départ jusqu'a len caractère
-#include "libft.h"
+#include "../../libft.h"
 
 static char	*ft_strscpy(char const *c, char *tab, int start, size_t len)
 {

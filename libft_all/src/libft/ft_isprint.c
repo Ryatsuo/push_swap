@@ -1,5 +1,5 @@
 // Teste si un caractère est imprimable
-#include "libft.h"
+#include "../../libft.h"
 
 int	ft_isprint(int c)
 {

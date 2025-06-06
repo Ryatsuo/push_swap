@@ -1,5 +1,5 @@
 //convertit un char en long int
-#include "libft.h"
+#include "../../libft.h"
 
 long	ft_atol(const char *str)
 {

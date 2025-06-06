@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "../../libft.h"
 
 size_t	ft_strlen_gnl(const char *s)
 {
@@ -10,7 +10,7 @@ size_t	ft_strlen_gnl(const char *s)
 	return (i);
 }
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_gnl(const char *s, int c)
 {
 	if (!s)
 		return (NULL);

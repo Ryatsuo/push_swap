@@ -1,5 +1,5 @@
 // Découpe une chaine en double tableau selon les délimiteurs
-#include "libft.h"
+#include "../../libft.h"
 
 static size_t	ft_countword(char const *s, char c)
 {

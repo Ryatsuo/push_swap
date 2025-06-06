@@ -1,5 +1,5 @@
 // Calcule la longeur d'une liste chainée
-#include "libft.h"
+#include "../../libft.h"
 
 int	ft_lstsize(t_list *lst)
 {

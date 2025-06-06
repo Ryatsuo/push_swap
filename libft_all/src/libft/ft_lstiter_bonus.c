@@ -1,5 +1,5 @@
 // Applique la fonction f sur tout les content de la liste chainées
-#include "libft.h"
+#include "../../libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {

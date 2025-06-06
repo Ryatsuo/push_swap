@@ -1,5 +1,5 @@
 // renvoie le dernier élément d'une liste chainée
-#include "libft.h"
+#include "../../libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {
