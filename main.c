@@ -20,8 +20,24 @@ void	error(void)
 
 void	launch(t_list **pile_a, t_list **pile_b)
 {
+	t_list	*tmp_a;
+	t_list	*tmp_a2;
+
+	tmp_a = *pile_a;
 	init_index(*pile_a);
 	parse_index(*pile_a);
+	if (ft_lstsize(*pile_a) == 1)
+		return ;
+	tmp_a2 = tmp_a->next;
+	while (tmp_a2)
+	{
+		if (*(int *)tmp_a->index > *(int *)tmp_a2->index)
+			break ;
+		tmp_a = tmp_a->next;
+		tmp_a2 = tmp_a2->next;
+	}
+	if (!tmp_a2)
+		return ;
 	dynamique_chunk(pile_a, pile_b);
 	fill_a(pile_a, pile_b);
 }
