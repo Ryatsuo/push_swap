@@ -24,7 +24,7 @@ void	fill_a(t_list **lst_a, t_list **lst_b)
 
 void	count_push_max_or_nextmax(t_list **lst_a, t_list **lst_b)
 {
-	int	max_pos;
+	int	max_pos; 
 	int	cost_max;
 	int	next_max_val;
 	int	next_max_pos;

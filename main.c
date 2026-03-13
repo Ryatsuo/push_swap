@@ -51,7 +51,7 @@ void	check_args(int argc, char **argv, char ***tab, t_list **pile_a)
 		*pile_a = parsing(*tab, 0);
 	else if (argc > 2 && check_arg_are_different(argv, 1)
 		&& check_arg_is_nbr(argv, 1) && check_nbr_range(argv, 1))
-		*pile_a = parsing(argv, 1);
+		*pile_a = parsing(argv, 1); 
 	else
 	{
 		if (*tab)

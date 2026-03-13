@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft_all/libft.h"
+# include "libft_all/libft.h" 
 
 void	lst_swap(t_list **lst);
 void	lst_swap_a(t_list **lst);
